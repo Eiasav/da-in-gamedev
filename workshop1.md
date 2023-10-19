@@ -45,6 +45,7 @@
   
 ![Снимок экрана 2023-10-19 205746](https://github.com/Eiasav/da-in-gamedev/assets/130223999/a4a04b09-e221-4aad-baa1-3b9f2701bf6a)
 
+```py
 print('Hello World')
 
 ```
