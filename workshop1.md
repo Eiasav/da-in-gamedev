@@ -81,6 +81,8 @@ public class HelloWorld : MonoBehaviour
 
 - Создать репозиторий. Заполнить отчет и отправить его в гугл-форму.
 
+  ![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/1ab080bd-a5e4-4031-bcdb-0f0bb8eba567)
+
 ## Выводы
 
 Я научилась пользоваться Jupyter и Anaconda и заполнять отчет в Github.
