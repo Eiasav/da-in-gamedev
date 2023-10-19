@@ -42,24 +42,10 @@
 ### Написать программу Hello World на Python с запуском в Jupiter Notebook.
 Ход работы:
 - Скачаваем дистрибутив языков программирования Python - Anaconda. Открываем Anaconda Navigator и запускаем Jupyter Notebook. Создаем папку UrFU/1-Anaconda и файл HelloWorld.jpynb. Открываем файл HelloWorld.jpynb и пишем код.
+  
+![Снимок экрана 2023-10-19 205746](https://github.com/Eiasav/da-in-gamedev/assets/130223999/a4a04b09-e221-4aad-baa1-3b9f2701bf6a)
 
-```py
-
-In [ ]:
-#Import the required modules, numpy for calculation, and Matplotlib for drawing
-import numpy as np
-import matplotlib.pyplot as plt
-#This code is for jupyter Notebook only
-%matplotlib inline
-
-# define data, and change list to array
-x = [3,21,22,34,54,34,55,67,89,99]
-x = np.array(x)
-y = [2,22,24,65,79,82,55,130,150,199]
-y = np.array(y)
-
-#Show the effect of a scatter plot
-plt.scatter(x,y)
+print('Hello World')
 
 ```
 
