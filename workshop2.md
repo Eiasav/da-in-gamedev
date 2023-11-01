@@ -8,7 +8,7 @@
 | Задание | Выполнение | Баллы |
 | ------ | ------ | ------ |
 | Задание 1 | * | 60 |
-| Задание 2 | # | 20 |
+| Задание 2 | * | 20 |
 | Задание 3 | # | 20 |
 
 знак "*" - задание выполнено; знак "#" - задание не выполнено;
@@ -93,7 +93,7 @@ while i <= len(mon):
 ## Задание 3
 ### Настройте на сцене Unity воспроизведение звуковых файлов, описывающих динамику изменения выбранной переменной. Например, если выбрано здоровье главного персонажа вы можете выводить сообщения, связанные с его состоянием.
 
-- Создать репозиторий. Заполнить отчет и отправить его в гугл-форму.
+- Создаем пустой GameObject и привязываем к нему скрипт, куда добавляем код, написанный ниже. Подключаем скрипт и звуковые дорожки в инспекторе.
 
 ![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/aa29ed8f-7c77-4436-9729-44d312e417ee)
 ![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/d04fd54d-da28-4f78-8ccf-a1e071819c01)
@@ -128,7 +128,7 @@ public class gameobj : MonoBehaviour
 
         if (dataSet["Mon_" + i.ToString()] <= 10 & statusStart == false & i != dataSet.Count)
         {
-            StartCoroutine(PlaySelectAudioGood());
+            StartCoroutine(PlaySelectAudioBad());
             Debug.Log(dataSet["Mon_" + i.ToString()]);
         }
 
@@ -140,7 +140,7 @@ public class gameobj : MonoBehaviour
 
         if (dataSet["Mon_" + i.ToString()] >= 100 & statusStart == false & i != dataSet.Count)
         {
-            StartCoroutine(PlaySelectAudioBad());
+            StartCoroutine(PlaySelectAudioGood());
             Debug.Log(dataSet["Mon_" + i.ToString()]);
         }
     }
@@ -191,17 +191,23 @@ public class gameobj : MonoBehaviour
     }
 }
 
+
 ```
+
+- Несложно заметить, что значения, выводимые в консоли Unity, полностью солвпадают со значениями из таблицы:
+![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/1109797c-8516-419f-8a70-918754bb21c2)
+![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/34b79c53-54b6-4e07-8d47-ccb8af020f93)
+
 
 ## Выводы
 
-Я научилась пользоваться Jupyter и Anaconda и заполнять отчет в Github.
+Я познакомилась с визуализацией данных из GoogleSheets в Unity и работой со звуковыми эффектами в Unity с помощью скриптов на Python и C#.
 
 Анектод про Штирлица для поднятия настроения:
 ```
-Штирлиц долго смотрел в одну точку, потом в другую.
-
-- Двоеточие, - смекнул Штирлиц.
+Штирлиц толкнул дверь. Дверь не открылась. Штирлиц толкнул сильнее. Дверь даже не шелохнулась. Штирлиц ударил ногой. С тем же успехом. Штирлиц разбежался и бросился на дверь всем телом.
+Дверь не поддавалась.
+"Закрыто", - догадался Штирлиц.
 ```
 ## Powered by
 
