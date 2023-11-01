@@ -54,27 +54,41 @@
 ## Задание 2
 ### С помощью скрипта на языке Python заполните google-таблицу данными, описывающими выбранную игровую переменную в выбранной игре (в качестве таких переменных может выступать игровая валюта, ресурсы, здоровье и т.д.). Средствами google-sheets визуализируйте данные в google-таблице (постройте график, диаграмму и пр.) для наглядного представления выбранной игровой величины.
 
-- Авторизируемся на unity.com и скачиваем Unity Hub и Microsoft Visual Studio. Открываем Unity Hub и создаем 3D проект. Выполняем настройку Script Editor и создаем C# Script.
-
-  ![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/675c112b-3230-4469-a312-421925381c9e)
-
-
+- Написать следующий код на Pythonи, заполняющий google-таблицу, связ с которой ранее настроили при помощи GoogleCloud.
+  
 ```py
 
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class HelloWorld : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        Debug.Log("Hello world !");
-    }
-}
+import gspread
+import numpy as np
+gc = gspread.service_account(filename = 'unitydatascience-402805-5bac807ce896.json')
+sh = gc.open("UnityWorkshop2")
+price = np.random.randint(0, 20, 11)
+mon = list(range(1, 11))
+i = 0
+while i <= len(mon):
+    i += 1
+    if i == 0:
+        continue
+    else:
+        tempInf = ((price[i - 1] - price[i - 2]) / price[i - 2]) * 100
+        tempInf = str(tempInf)
+        tempInf = tempInf.replace('.', ',')
+        sh.sheet1.update(('A' + str(i)), str(i))
+        sh.sheet1.update(('B' + str(i)), str(price[i - 1]))
+        sh.sheet1.update(('C' + str(i)), str(tempInf))
+        print(tempInf)
 
 ```
+![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/eb57a5ca-4248-42c2-b8ac-03d0f7631523)
+![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/11aa303a-6baf-4c1e-8225-340bae1e9721)
+
+- В первом столбце таблице указывается номер итерации, во втором сгенерированное число, а в третьем процентное соотношение разницы сгенерированного числа и предыдущего в сравнении с минимальным значением, необходимым для получения награды.
+- Визуализация данных при помощи средств GoogleSheets (красная линия - значения второго стлобца, синия - третьего):
+
+  ![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/9cdb711f-529f-4ff5-9184-1c0f6b6d389e)
+
+
+
 
 ## Задание 3
 ### Оформить отчет в виде документации на github (markdown-разметка).
