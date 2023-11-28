@@ -50,7 +50,7 @@
 
 ```py
 
-difficulty factor = speed / timeBetweenEggDrops * chanceDirection * leftRightDistance
+difficulty factor = chanceDirection / timeBetweenEggDrops * speed * leftRightDistance
 
 ```
 
