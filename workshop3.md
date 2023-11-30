@@ -62,8 +62,7 @@ difficulty factor = chanceDirection / timeBetweenEggDrops * speed * leftRightDis
 ## Задание 3
 ### Заполнить google-таблицу данными из Python.
 
-![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/e20bafbf-cbdf-461e-a3b2-5e6d36f61736)
-
+![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/17f702e4-9e64-4403-b49c-02b7450adf6b)
 
 ```py
 
@@ -93,7 +92,6 @@ while i <= 8:
         sh.sheet1.update(('E' + str(i + 2)), chance - 0.0002 * i)
 
 ```
-
 
 ## Выводы
 
