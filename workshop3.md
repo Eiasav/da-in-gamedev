@@ -56,42 +56,7 @@ difficulty factor = chanceDirection / timeBetweenEggDrops * speed * leftRightDis
 Динамику сложности уровней Вы можете увидеть в 3 задании.
 
 ## Задание 2
-### С помощью скрипта на языке Python заполните google-таблицу данными, описывающими выбранную игровую переменную в выбранной игре (в качестве таких переменных может выступать игровая валюта, ресурсы, здоровье и т.д.). Средствами google-sheets визуализируйте данные в google-таблице (постройте график, диаграмму и пр.) для наглядного представления выбранной игровой величины.
-
-- Написать следующий код на Pythonи, заполняющий google-таблицу, связ с которой ранее настроили при помощи GoogleCloud.
-  
-```py
-
-import gspread
-import numpy as np
-gc = gspread.service_account(filename = 'unitydatascience-402805-5bac807ce896.json')
-sh = gc.open("UnityWorkshop2")
-price = np.random.randint(0, 20, 11)
-mon = list(range(1, 11))
-i = 0
-while i <= len(mon):
-    i += 1
-    if i == 0:
-        continue
-    else:
-        tempInf = ((price[i - 1] - price[i - 2]) / price[i - 2]) * 100
-        tempInf = str(tempInf)
-        tempInf = tempInf.replace('.', ',')
-        sh.sheet1.update(('A' + str(i)), str(i))
-        sh.sheet1.update(('B' + str(i)), str(price[i - 1]))
-        sh.sheet1.update(('C' + str(i)), str(tempInf))
-        print(tempInf)
-
-```
-![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/eb57a5ca-4248-42c2-b8ac-03d0f7631523)
-![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/11aa303a-6baf-4c1e-8225-340bae1e9721)
-
-- В первом столбце таблице указывается номер итерации, во втором сгенерированное число, а в третьем процентное соотношение разницы сгенерированного числа и предыдущего в сравнении с минимальным значением, необходимым для получения награды.
-- Визуализация данных при помощи средств GoogleSheets (красная линия - значения второго стлобца, синия - третьего):
-
-  ![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/9cdb711f-529f-4ff5-9184-1c0f6b6d389e)
-
-
+### Создайте 10 сцен на Unity с изменяющимся уровнем сложности.
 
 
 ## Задание 3
@@ -112,7 +77,7 @@ sh = gc.open("difficulty factor")
 speed = 1.00
 distance = 10.00
 timeBeet = 2.00
-chance = 0.02
+chance = 0.01
 i = 0
 end = 8
 while i <= 8:
