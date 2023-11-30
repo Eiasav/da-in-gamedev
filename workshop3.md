@@ -74,7 +74,7 @@ import time
 
 gc = gspread.service_account(filename = 'worshop-3-19e26d47d10f.json')
 sh = gc.open("difficulty factor")
-speed = 1.00
+speed = 4.00
 distance = 10.00
 timeBeet = 2.00
 chance = 0.01
@@ -91,7 +91,6 @@ while i <= 8:
         sh.sheet1.update(('C' + str(i + 2)), timeBeet - 0.2 * i + (temp[1] / 1000))
         sh.sheet1.update(('D' + str(i + 2)), distance + 0.3 * i + (temp[2] / 1000))
         sh.sheet1.update(('E' + str(i + 2)), chance - 0.0002 * i)
-
 
 ```
 
