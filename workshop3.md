@@ -92,6 +92,8 @@ while i <= 8:
         sh.sheet1.update(('E' + str(i + 2)), chance - 0.0002 * i)
 
 ```
+![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/99f87f2a-adf8-4605-8f2c-c86a0738b5e8)
+
 
 ## Выводы
 
