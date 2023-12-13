@@ -61,9 +61,9 @@ difficulty factor = chanceDirection / timeBetweenEggDrops * speed * leftRightDis
 
 ## Задание 3
 ### Заполнить google-таблицу данными из Python.
-
+Результат заполнения таблицы данными:
 ![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/a0cd6f89-9867-425d-b00e-b4d56203b865)
-
+Для заполнения таблицы данными я написала код:
 ```py
 
 import gspread
@@ -119,6 +119,8 @@ plt.xlabel("chance")
 plt.show()
 
 ```
+Визуализация данных в Python:
+
 ![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/99f87f2a-adf8-4605-8f2c-c86a0738b5e8)
 ![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/c14f8f5e-f133-412e-b3e4-725969ca112f)
 ![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/2a5d4c67-4b17-4fea-9c04-6c5dea9a7f26)
