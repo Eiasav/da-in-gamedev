@@ -58,6 +58,7 @@ difficulty factor = chanceDirection / timeBetweenEggDrops * speed * leftRightDis
 ## Задание 2
 ### Создайте 10 сцен на Unity с изменяющимся уровнем сложности.
 
+С результатом данного задания вы можете ознакомиться по ссылке : https://github.com/Eiasav/dragon-picker.git
 
 ## Задание 3
 ### Заполнить google-таблицу данными из Python.
