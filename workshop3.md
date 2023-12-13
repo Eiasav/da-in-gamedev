@@ -62,39 +62,67 @@ difficulty factor = chanceDirection / timeBetweenEggDrops * speed * leftRightDis
 ## Задание 3
 ### Заполнить google-таблицу данными из Python.
 
-![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/17f702e4-9e64-4403-b49c-02b7450adf6b)
+![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/a0cd6f89-9867-425d-b00e-b4d56203b865)
 
 ```py
 
 import gspread
 import numpy as np
 import matplotlib.pyplot as plt
-import time
 
 gc = gspread.service_account(filename = 'worshop-3-19e26d47d10f.json')
 sh = gc.open("difficulty factor")
-speed = 4.00
-distance = 10.00
-timeBeet = 2.00
-chance = 0.01
-i = 0
-end = 8
-while i <= 8:
-    temp = np.random.randint(-100, 100, 3) 
-    i += 1
-    if i == 0:
-        continue
-    else:
-        sh.sheet1.update(('A' + str(i + 1)), str(i))
-        sh.sheet1.update(('B' + str(i + 2)), speed + 0.7 * i + (temp[0] / 1000))
-        sh.sheet1.update(('C' + str(i + 2)), timeBeet - 0.2 * i + (temp[1] / 1000))
-        sh.sheet1.update(('D' + str(i + 2)), distance + 0.3 * i + (temp[2] / 1000))
-        sh.sheet1.update(('E' + str(i + 2)), chance - 0.0002 * i)
+speed = [4]
+leftRightDistance  = [10]
+timeBetweenEggDrops  = [2]
+chanceDirection = [0.01]
+level = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+def _update(column, start, end, delta):
+    i = 0
+    count = 2
+    array = []
+    while count < 11:
+        count += 1
+        array.append(random.uniform(start, end) + delta * i)
+        sh.sheet1.update((column + str(count)), random.uniform(start, end) + delta * i)
+        start, end = start + delta, end + delta
+        i += 1
+    return array
+
+speed += (_update('B', 4.00, 5.00, 0.8))
+timeBetweenEggDrops  += (_update('C', 1.5, 1.6, -0.09))
+leftRightDistance  += (_update('D', 10.00, 11.00, 0.74))
+chanceDirection += (_update('E', 0.01, 1.00, 0.33))
+
+plt.plot(speed, level)
+plt.title("speed")
+plt.ylabel("level number")
+plt.xlabel("speed")
+plt.show()
+
+plt.plot(timeBetweenEggDrops, level)
+plt.title("time")
+plt.ylabel("level")
+plt.xlabel("time")
+plt.show()
+
+plt.plot(leftRightDistance, level)
+plt.title("distance")
+plt.ylabel("level")
+plt.xlabel("distance")
+plt.show()
+
+plt.plot(chanceDirection, level)
+plt.title("chance")
+plt.ylabel("level")
+plt.xlabel("chance")
+plt.show()
 
 ```
 ![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/99f87f2a-adf8-4605-8f2c-c86a0738b5e8)
 ![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/c14f8f5e-f133-412e-b3e4-725969ca112f)
 ![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/2a5d4c67-4b17-4fea-9c04-6c5dea9a7f26)
+![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/28307074-4628-4152-a861-bd7a45b71454)
 
 
 ## Выводы
