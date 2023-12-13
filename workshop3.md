@@ -93,6 +93,7 @@ while i <= 8:
 
 ```
 ![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/99f87f2a-adf8-4605-8f2c-c86a0738b5e8)
+![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/c14f8f5e-f133-412e-b3e4-725969ca112f)
 
 
 ## Выводы
