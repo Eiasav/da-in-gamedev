@@ -219,43 +219,16 @@ public class Perceptron : MonoBehaviour
 Задавая больше эпох (вплоть до 100), значение переменной Total Error всегда равно 4, следовательно, данную модель перцептрона невозможно обучить операции XOR.
 
 ## Задание 2
-### С помощью скрипта на языке Python заполните google-таблицу данными, описывающими выбранную игровую переменную в выбранной игре (в качестве таких переменных может выступать игровая валюта, ресурсы, здоровье и т.д.). Средствами google-sheets визуализируйте данные в google-таблице (постройте график, диаграмму и пр.) для наглядного представления выбранной игровой величины.
+### Построить графики зависимости количества эпох от ошибки  обучения. Указать от чего зависит необходимое количество эпох обучения.
 
-- Написать следующий код на Pythonи, заполняющий google-таблицу, связ с которой ранее настроили при помощи GoogleCloud.
-  
-```py
+В данном задании я делала 4 попытки в 8 эпохах обучения для каждой операции.
 
-import gspread
-import numpy as np
-gc = gspread.service_account(filename = 'unitydatascience-402805-5bac807ce896.json')
-sh = gc.open("UnityWorkshop2")
-price = np.random.randint(0, 20, 11)
-mon = list(range(1, 11))
-i = 0
-while i <= len(mon):
-    i += 1
-    if i == 0:
-        continue
-    else:
-        tempInf = ((price[i - 1] - price[i - 2]) / price[i - 2]) * 100
-        tempInf = str(tempInf)
-        tempInf = tempInf.replace('.', ',')
-        sh.sheet1.update(('A' + str(i)), str(i))
-        sh.sheet1.update(('B' + str(i)), str(price[i - 1]))
-        sh.sheet1.update(('C' + str(i)), str(tempInf))
-        print(tempInf)
+![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/82604e45-a827-4c08-a3fe-58eef0ae3c1f)
+![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/0c620798-87e1-46eb-ac4b-1ed25d3fdc5d)
+![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/f5e89cfc-95a5-49f8-87ec-07283a472f1d)
+![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/e7b1139d-e0d3-4889-a9ca-e986ecd64646)
 
-```
-![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/eb57a5ca-4248-42c2-b8ac-03d0f7631523)
-![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/11aa303a-6baf-4c1e-8225-340bae1e9721)
-
-- В первом столбце таблице указывается номер итерации, во втором сгенерированное число, а в третьем процентное соотношение разницы сгенерированного числа и предыдущего в сравнении с минимальным значением, необходимым для получения награды.
-- Визуализация данных при помощи средств GoogleSheets (красная линия - значения второго стлобца, синия - третьего):
-
-  ![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/9cdb711f-529f-4ff5-9184-1c0f6b6d389e)
-
-
-
+Количество эпох обучения зависит от решаемой операции. Однако выше показанная статистика не совсем точна, так как взято маленькое количество попыток.
 
 ## Задание 3
 ### Настройте на сцене Unity воспроизведение звуковых файлов, описывающих динамику изменения выбранной переменной. Например, если выбрано здоровье главного персонажа вы можете выводить сообщения, связанные с его состоянием.
