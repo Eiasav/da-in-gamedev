@@ -239,7 +239,8 @@ public class Perceptron : MonoBehaviour
 
 ### 1) OR
 Начальное положение: ![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/d7fb81f1-1231-4739-88a7-d262f5bacadb)
-Результат: ![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/e072ddaa-1863-4252-a775-dbc77117a5a8)
+
+Результат: ![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/c88ff8b9-4cc1-48a2-bf9a-e6fa057479c1)
 
 
 ## Выводы
