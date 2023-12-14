@@ -234,13 +234,13 @@ public class Perceptron : MonoBehaviour
 ### Построить визуальную модель работы перцептрона на сцене Unity.
 
 Я создала 4 сцены на Unity с названиями операций, которые будут в ней визуализированны: ![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/bca8a673-8b8c-4a4d-8ea6-d13ba2e59d78)
-В каждой сцене по 4 пары кубов (белый - истина, черный - ложь): ![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/c6b4dff9-81a6-48c9-bb8a-56bdbec185c4)
+В каждой сцене по 4 пары кубов (белый - истина, черный - ложь): 
 К каждому из верхних кубов был назначен Rigidbody, а к нижним Is Trigger.
 
 ### 1) OR
-Начальное положение: ![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/d7fb81f1-1231-4739-88a7-d262f5bacadb)
+Начальное положение: 
 
-Результат: ![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/c88ff8b9-4cc1-48a2-bf9a-e6fa057479c1)
+Результат: 
 
 
 ## Выводы
