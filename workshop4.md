@@ -231,124 +231,15 @@ public class Perceptron : MonoBehaviour
 Количество эпох обучения зависит от решаемой операции. Однако выше показанная статистика не совсем точна, так как взято маленькое количество попыток.
 
 ## Задание 3
-### Настройте на сцене Unity воспроизведение звуковых файлов, описывающих динамику изменения выбранной переменной. Например, если выбрано здоровье главного персонажа вы можете выводить сообщения, связанные с его состоянием.
+### Построить визуальную модель работы перцептрона на сцене Unity.
 
-- Создаем пустой GameObject и привязываем к нему скрипт, куда добавляем код, написанный ниже. Подключаем скрипт и звуковые дорожки в инспекторе.
-
-![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/aa29ed8f-7c77-4436-9729-44d312e417ee)
-![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/d04fd54d-da28-4f78-8ccf-a1e071819c01)
-
-```py
-
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Networking;
-using SimpleJSON;
-
-public class gameobj : MonoBehaviour
-{
-    public AudioClip goodSpeak;
-    public AudioClip normalSpeak;
-    public AudioClip badSpeak;
-    private AudioSource selectAudio;
-    private Dictionary<string, float> dataSet = new Dictionary<string, float>();
-    private bool statusStart = false;
-    private int i = 1;
-
-    void Start()
-    {
-        StartCoroutine(GoogleSheets());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (i > dataSet.Count) return;
-
-        if (dataSet["Mon_" + i.ToString()] <= 10 & statusStart == false & i != dataSet.Count)
-        {
-            StartCoroutine(PlaySelectAudioBad());
-            Debug.Log(dataSet["Mon_" + i.ToString()]);
-        }
-
-        if (dataSet["Mon_" + i.ToString()] > 10 & dataSet["Mon_" + i.ToString()] < 100 & statusStart == false & i != dataSet.Count)
-        {
-            StartCoroutine(PlaySelectAudioNormal());
-            Debug.Log(dataSet["Mon_" + i.ToString()]);
-        }
-
-        if (dataSet["Mon_" + i.ToString()] >= 100 & statusStart == false & i != dataSet.Count)
-        {
-            StartCoroutine(PlaySelectAudioGood());
-            Debug.Log(dataSet["Mon_" + i.ToString()]);
-        }
-    }
-
-    IEnumerator GoogleSheets()
-    {
-        UnityWebRequest curenResp = UnityWebRequest.Get("https://sheets.googleapis.com/v4/spreadsheets/1WDVGYHi-jJTAS3BrRTzB0QS4D2kkjNlzkbwQUWTQOuc/values/A1%3AZ100?key=AIzaSyCEP86S7nN6iHS0E7AI-aBcJO8woaaV7ro");
-        yield return curenResp.SendWebRequest();
-        string rawResp = curenResp.downloadHandler.text;
-        var rawJson = JSON.Parse(rawResp);
-        foreach (var itemRawJson in rawJson["values"]) 
-        {
-            var parseJson = JSON.Parse(itemRawJson.ToString());
-            var selectRow = parseJson[0].AsStringList;
-            dataSet.Add(("Mon_" + selectRow[0]), float.Parse(selectRow[2]));
-        }
-    }
-
-    IEnumerator PlaySelectAudioGood()
-    {
-        statusStart = true;
-        selectAudio = GetComponent<AudioSource>();
-        selectAudio.clip = goodSpeak;
-        selectAudio.Play();
-        yield return new WaitForSeconds(3);
-        statusStart = false;
-        i++;
-    }
-    IEnumerator PlaySelectAudioNormal()
-    {
-        statusStart = true;
-        selectAudio = GetComponent<AudioSource>();
-        selectAudio.clip = normalSpeak;
-        selectAudio.Play();
-        yield return new WaitForSeconds(3);
-        statusStart = false;
-        i++;
-    }
-    IEnumerator PlaySelectAudioBad()
-    {
-        statusStart = true;
-        selectAudio = GetComponent<AudioSource>();
-        selectAudio.clip = badSpeak;
-        selectAudio.Play();
-        yield return new WaitForSeconds(4);
-        statusStart = false;
-        i++;
-    }
-}
-
-
-```
-
-- Несложно заметить, что значения, выводимые в консоли Unity, полностью солвпадают со значениями из таблицы:
-![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/1109797c-8516-419f-8a70-918754bb21c2)
-![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/34b79c53-54b6-4e07-8d47-ccb8af020f93)
+Я создала 4 сцены на Unity с названиями операций, которые будут в ней визуализированны: ![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/bca8a673-8b8c-4a4d-8ea6-d13ba2e59d78)
 
 
 ## Выводы
 
 Я познакомилась с визуализацией данных из GoogleSheets в Unity и работой со звуковыми эффектами в Unity с помощью скриптов на Python и C#.
 
-Анектод про Штирлица для поднятия настроения:
-```
-Штирлиц толкнул дверь. Дверь не открылась. Штирлиц толкнул сильнее. Дверь даже не шелохнулась. Штирлиц ударил ногой. С тем же успехом. Штирлиц разбежался и бросился на дверь всем телом.
-Дверь не поддавалась.
-"Закрыто", - догадался Штирлиц.
-```
 ## Powered by
 
 **BigDigital Team: Denisov | Fadeev | Panov**
