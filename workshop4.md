@@ -235,6 +235,7 @@ public class Perceptron : MonoBehaviour
 
 Я создала 4 сцены на Unity с названиями операций, которые будут в ней визуализированны: ![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/bca8a673-8b8c-4a4d-8ea6-d13ba2e59d78)
 В каждой сцене по 4 пары кубов (белый - истина, черный - ложь): ![image](https://github.com/Eiasav/da-in-gamedev/assets/130223999/c6b4dff9-81a6-48c9-bb8a-56bdbec185c4)
+К каждому из верхних кубов был назначен Rigidbody, а к нижним Is Trigger.
 
 
 ## Выводы
